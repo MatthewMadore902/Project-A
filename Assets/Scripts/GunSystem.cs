@@ -18,7 +18,7 @@ public class GunSystem : MonoBehaviour
 
 	//Recoil
 	public Rigidbody playerRb;
-	public float reciolForce;
+	public float recoilForce;
 
 	//Graphics
 	public GameObject muzzleFlash;
@@ -50,7 +50,7 @@ public class GunSystem : MonoBehaviour
 		{
 			shooting = Input.GetKey(KeyCode.Mouse0);
 		}
-		else 
+		else
 		{
 			shooting = Input.GetKeyDown(KeyCode.Mouse0);
 		}
@@ -84,7 +84,7 @@ public class GunSystem : MonoBehaviour
 		{
 			targetPoint = hit.point;
 		}
-		else 
+		else
 		{
 			targetPoint = ray.GetPoint(75);
 		}
@@ -108,7 +108,7 @@ public class GunSystem : MonoBehaviour
 		//Muzzle flash
 		if (muzzleFlash != null)
 		{
-			Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);	
+			Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
 		}
 
 		bulletsShot++;
@@ -120,7 +120,7 @@ public class GunSystem : MonoBehaviour
 			allowInvoke = false;
 
 			//Recoil
-			playerRb.AddForce(-directionWithSpread.normalized * reciolForce, ForceMode.Impulse);
+			playerRb.AddForce(-directionWithSpread.normalized * recoilForce, ForceMode.Impulse);
 		}
 
 		if (bulletsShot < bulletsPerTap && bulletsLeft > 0)
@@ -129,7 +129,7 @@ public class GunSystem : MonoBehaviour
 		}
 		if (gameObject.CompareTag("Bullet"))
 		{
-			
+
 			bulletDamage = 20;
 		}
 	}
